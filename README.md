@@ -6,9 +6,9 @@
  $ docker --version 
 ```
 ### nvidia install  
-参照公式ページ  
-+ [#nvidia/document](https://docs.nvidia.com/datacenter/tesla/tesla-installation-notes/index.html)を参考にec2インスタンスでインストールする  
-+ [#github.com/document](https://github.com/NVIDIA/nvidia-docker)
+documents: nvidia Official pagas  
++ [https://docs.nvidia.com/datacenter/tesla/tesla-installation-notes/index.html](https://docs.nvidia.com/datacenter/tesla/tesla-installation-notes/index.html)
++ [https://github.com/NVIDIA/nvidia-docker](https://github.com/NVIDIA/nvidia-docker)
 ```
   $ sudo apt-get install linux-headers-$(uname -r) 
   $ distribution=$(. /etc/os-release;echo $ID$VERSION_ID | sed -e 's/\.//g')
@@ -33,3 +33,16 @@
   $ sudo systemctl restart docker
   $ docker run  --gpus all nvidia/cuda:11.0-base nvidia-smi
 ```
+
+### Git clone && docker setting 
+```
+  $ sudo apt-get install -y git 
+  $ git clone https://github.com/kooose38/docker_nvidia_aws
+  $ cd ./docker_nvidia_aws | cat Dockerfile 
+  $ docker build . 
+  $ docker images 
+  $ docker run --gpus all -v ~:/work -p 8888:8888 <imageID> # start to jupyter lab 
+```
+
+### open web-blowzer
+- `http://<ec2-publicIP>:8888`

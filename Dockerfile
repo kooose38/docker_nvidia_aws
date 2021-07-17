@@ -12,4 +12,4 @@ RUN pip install --upgrade pip && pip install \
    scipy==1.4.1 \
    tensorflow-gpu==2.1
 WORKDIR / 
-CMD ["jupyter lab", "--ip=0.0.0.0", "--allow-root", "--Lab.App.token=''"]
+CMD ["jupyter", "lab", "--ip=0.0.0.0", "--allow-root", "--Lab.App.token=''"]
